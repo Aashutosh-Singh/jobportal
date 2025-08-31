@@ -181,8 +181,8 @@ const PostJob = () => {
                   <SelectTrigger className="w-[180px]">
                     <SelectValue placeholder="Select a Company" />
                   </SelectTrigger>
-                  <SelectContent>
-                    <SelectGroup>
+                  <SelectContent className="bg-white">
+                    <SelectGroup className="hover:bg-green-600/20 rounded-md">
                       {companies.map((company) => (
                         <SelectItem
                           key={company._id}
