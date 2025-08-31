@@ -96,7 +96,7 @@ const Navbar = () => {
             <Link to={"/login"}>
               <Button
                 variant="outline"
-                className="rounded-full border-gray-300 hover:border-gray-400 hover:bg-gray-100 transition text-sm sm:text-base"
+                className="rounded-full border-gray-300 hover:border-gray-00 hover:bg-gray-900 transition text-sm sm:text-base"
               >
                 Login
               </Button>
