@@ -16,7 +16,7 @@ const Profile = () => {
   const [open, setOpen] = useState(false);
   const { user } = useSelector((store) => store.auth);
   return (
-    <div>
+    <div className=" relative">
       <Navbar />
 
       <div className="max-w-4xl mx-auto  bg-white border border-gray-200 rounded-2xl my-5 p-8 shadow shadow-gray-400 hover:shadow-yellow-400">

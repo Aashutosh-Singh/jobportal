@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import Navbar from "../components_lite/Navbar";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
@@ -108,6 +108,7 @@ const Register = () => {
           <div className="my-2">
             <Label>Password</Label>
             <Input
+              minLength={6}
               type="password"
               value={input.password}
               name="password"
@@ -118,6 +119,7 @@ const Register = () => {
           <div>
             <Label>PAN Card Number</Label>
             <Input
+              minLength={10}
               type="text"
               value={input.pancard}
               name="pancard"
@@ -128,6 +130,7 @@ const Register = () => {
           <div>
             <Label>Adhar Card Number</Label>
             <Input
+              minLength={12}
               type="text"
               value={input.adharcard}
               name="adharcard"
@@ -189,7 +192,7 @@ const Register = () => {
           ) : (
             <button
               type="submit"
-              className="block w-full py-3 my-3 text-white bg-primary hover:bg-primary/90 rounded-md"
+              className="block w-full py-3 my-3 text-white bg-black hover:bg-black/80 rounded-md"
             >
               Register
             </button>

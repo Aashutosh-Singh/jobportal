@@ -1,61 +1,140 @@
-import React from 'react'
-import Navbar from '../components_lite/Navbar'
-import amreshsir from './amreshsir.jpg'; // Import the local image
-import ankit from './Ankit.jpg';
-import ritik from './ritik.jpg';
-import gaurav from './gaurav.jpg';
+/* eslint-disable react/prop-types */
 
-const Creator = () => {
+import Navbar from "../components_lite/Navbar"
+import { motion } from "framer-motion"
+import Card from "../components_lite/Card" // use your single Card.jsx
+import mypic from "./mypic.jpg"
+
+// Motion variant
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+}
+
+// Simple Button
+function Button({ children, onClick, className = "" }) {
   return (
-    <div>
-      <Navbar />
-      <div className="flex flex-col items-center justify-center h-screen max-w-7xl mx-auto p-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center w-full">
-          {/* Image Section */}
-          <div className="flex justify-center">
-            <img src={amreshsir} alt="Amresh Sir" className="h-80 object-cover rounded-lg shadow-md" />
-          </div>
-          {/* Text Section */}
-          <div>
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Dr. Amresh Kumar</h2>
-            <p className="text-gray-600 mb-2">Dr. Amresh Kumar completed his <strong>B.Tech in Electronics and Communication Engineering (ECE)</strong> from <strong>Shivnand Singh Institution of Technology and Management, Aligarh</strong>, in <strong>2002</strong>.</p>
-            <p className="text-gray-600 mb-2">After graduation, he joined <strong>Koderma Mines Institution</strong> as a <strong>part-time lecturer</strong>. He then pursued his <strong>M.Tech in Electrical Engineering</strong> from <strong>BIT Sindri, Dhanbad</strong>.</p>
-            <p className="text-gray-600 mb-2">He was later selected as an <strong>Assistant Professor</strong> in the <strong>Electronics and Communication Engineering (ECE) Department</strong> at <strong>MIT Muzaffarpur</strong>. During his tenure there, he also completed his <strong>Ph.D. in Electrical Engineering</strong> from <strong>Bihar University, Muzaffarpur, in 2016</strong>.</p>
-            <p className="text-gray-600">Following his Ph.D., he was transferred to <strong>Rashtrakavi Ramdhari Singh Dinkar College of Engineering (RRSDCE)</strong> as an <strong>Assistant Professor in the Electrical and Electronics Engineering (EEE) Department</strong>, where he continues to serve till date.</p>
-          </div>
-        </div>
-      </div>
-      
-      <hr className="w-full border-gray-300 my-6" />
-      
-      <div className="text-center p-6">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">Developers and Designers</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Developer 1 - Ankit Pathak */}
-          <a href="https://ankitpathak.vercel.app/" target="_blank" rel="noopener noreferrer" className="block text-center">
-            <img src={ankit} alt="Ankit Pathak" className="mx-auto rounded-lg shadow-md" />
-            <h3 className="text-lg font-semibold text-gray-700 mt-2">Ankit Pathak</h3>
-            <p className="text-gray-600 text-sm">Registration No: 21110125035</p>
-            <p className="text-gray-600 text-sm">Full Stack Developer</p>
-          </a>
-          {/* Developer 2 - Ritik Shrivastava */}
-          <a href="#" className="block text-center">
-            <img src={ritik} alt="Ritik Shrivastava" className="mx-auto rounded-lg shadow-md" />
-            <h3 className="text-lg font-semibold text-gray-700 mt-2">Ritik Shrivastava</h3>
-            <p className="text-gray-600 text-sm">Registration No: 21110125043</p>
-            <p className="text-gray-600 text-sm">UI/UX Designer</p>
-          </a>
-          {/* Developer 3 - Gaurav Kumar */}
-          <a href="#" className="block text-center">
-            <img src={gaurav} alt="Gaurav Kumar" className="mx-auto rounded-lg shadow-md" />
-            <h3 className="text-lg font-semibold text-gray-700 mt-2">Gaurav Kumar</h3>
-            <p className="text-gray-600 text-sm">Registration No: 21110125023</p>
-            <p className="text-gray-600 text-sm">Research</p>
-          </a>
-        </div>
-      </div>
-    </div>
+    <button
+      onClick={onClick}
+      className={`bg-white text-black hover:bg-zinc-200 px-8 py-3 rounded-2xl text-lg font-medium shadow-lg transition ${className}`}
+    >
+      {children}
+    </button>
   )
 }
 
-export default Creator
+export default function Creator() {
+  return (<>
+  <Navbar />
+    <div className="min-h-screen bg-black text-white font-[system-ui]">
+      
+
+      {/* Hero Section */}
+      <section className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center lg:justify-evenly justify-center px-6 pt-32 pb-24 gap-16">
+        {/* Profile Image */}
+        <motion.div
+          initial={{ scale: 0.95, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="flex-shrink-0"
+        >
+          <img
+            src={mypic}
+            alt="Creator"
+            className="sm:w-full w-full h-72 object-cover rounded-3xl shadow-xl"
+          />
+        </motion.div>
+
+        {/* Intro Text */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          className="max-w-xl text-center lg:text-left"
+        >
+          <h1 className="text-5xl md:text-6xl font-semibold tracking-tight mb-6">
+  Aashutosh Singh
+</h1>
+<p className="text-gray-300 text-lg leading-relaxed mb-4">
+  Creator of <span className="text-white font-medium">Job Portal</span> — a platform 
+  built to connect talent with opportunities in the most seamless way.
+</p>
+<p className="text-gray-400 text-base">
+  A <span className="text-white">Computer Science student</span> passionate about 
+  solving real-world problems through <span className="text-white pr-0.5">technology</span> 
+  and <span className="text-white pl-0.5">Science</span>. Always exploring, always building.
+</p>
+
+        </motion.div>
+      </section>
+
+      {/* Project Highlights */}
+      <section className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 px-6 pb-28">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <Card title="Tech Stack" className="bg-zinc-900 hover:scale-[1.02] transition-transform duration-500">
+            <ul className="text-gray-400 space-y-2">
+              <li>React + Tailwind + Motion</li>
+              <li>Node.js + Express</li>
+              <li>MongoDB</li>
+              <li>Authentication</li>
+            </ul>
+          </Card>
+        </motion.div>
+
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+        >
+          <Card title="Features" className="bg-zinc-900 hover:scale-[1.02] transition-transform duration-500">
+            <ul className="text-gray-400 space-y-2">
+              <li>Authentication & Security</li>
+              <li>Job Posting & Applications</li>
+              <li>Modern UI/UX</li>
+              <li>Full CRUD Support</li>
+            </ul>
+          </Card>
+        </motion.div>
+
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+        >
+          <Card title="Vision" className="bg-zinc-900 hover:scale-[1.02] transition-transform duration-500">
+            <p className="text-gray-400 leading-relaxed">
+              Apps should feel <span className="text-white">beautiful</span>, 
+              <span className="text-white"> immersive</span>, and{" "}
+              <span className="text-white">meaningful</span>. 
+              This project is one step in the journey toward 
+              building transformative startups.
+            </p>
+          </Card>
+        </motion.div>
+      </section>
+
+      {/* CTA Section */}
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="text-center pb-24"
+      >
+        <h2 className="text-4xl font-semibold mb-6">Let’s Build Together</h2>
+        <p className="text-gray-400 mb-8">I’m open to collaborations, internships, and new opportunities.</p>
+        <a href="https://aashutoshsingh.vercel.app/"><Button>Get in Touch</Button></a>
+      </motion.section>
+    </div>
+    </>
+  )
+}

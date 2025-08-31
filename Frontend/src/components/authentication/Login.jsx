@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../components_lite/Navbar";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { RadioGroup } from "../ui/radio-group";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -78,6 +78,7 @@ const Login = () => {
           <div className="my-2">
             <Label>Password</Label>
             <Input
+              minLength={12}
               type="password"
               value={input.password}
               name="password"
