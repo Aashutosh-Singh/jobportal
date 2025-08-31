@@ -78,7 +78,7 @@ const Login = () => {
           <div className="my-2">
             <Label>Password</Label>
             <Input
-              minLength={12}
+              minLength={6}
               type="password"
               value={input.password}
               name="password"
